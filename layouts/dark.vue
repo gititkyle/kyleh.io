@@ -4,7 +4,6 @@
     </div>
 </template>
 <style lang="scss" scoped>
-    /* https://colorhunt.co/palette/181367 */
     .theme-dark {
         width: 100%;
         height: 100%;

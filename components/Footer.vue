@@ -1,11 +1,13 @@
 <template>
-    <div class="footer">
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/kylealanhanson"><font-awesome-icon size="lg" :icon="['fab', 'linkedin']"/></a>
-            <a href="https://github.com/chooooons"><font-awesome-icon size="lg" :icon="['fab', 'github']"/></a>
-            <a href="mailto:hi@kyleh.io?subject=Hi, Kyle!"><font-awesome-icon size="lg" :icon="['fas', 'envelope']"/></a>
+    <footer class="footer">
+        <div class="container">
+            <div class="social-icons">
+                <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/kylealanhanson"><font-awesome-icon size="lg" :icon="['fab', 'linkedin']"/></a>
+                <a rel="noopener noreferrer" target="_blank" href="https://github.com/chooooons"><font-awesome-icon size="lg" :icon="['fab', 'github']"/></a>
+                <a rel="noopener noreferrer" target="_blank" href="mailto:hi@kyleh.io?subject=Hi, Kyle!"><font-awesome-icon size="6x" :icon="['fas', 'envelope']"/></a>
+            </div>
         </div>
-    </div>
+    </footer>
 </template>
 <script lang="ts">
     import Vue from 'vue';
@@ -15,17 +17,23 @@
     });
 </script>
 <style lang="scss" scoped>
+
+    @import "../node_modules/rfs/scss";
+
     .footer {
-        display: flex;
-        position: absolute;
         width: 100%;
         padding: 15px;
+        position: absolute;
+        bottom: 0;
         background-color: $dark-theme-4;
         animation: slide 1s forwards;
-        justify-content: center;
+
+        .social-icons, .copyright {
+            display: inline;
+        }
 
         .social-icons {
-            width: 32em;
+            @include font-size(4rem);
 
             svg {
                 color: $dark-theme-1;
@@ -36,11 +44,11 @@
     @keyframes slide {
         0% {
             opacity: 0;
-            bottom: -50px;
+            bottom: -20px;
         }
         100% {
             opacity: 1;
-            bottom: 0;
+            bottom: 0
         }
     }
 </style>

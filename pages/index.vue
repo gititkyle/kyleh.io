@@ -1,7 +1,7 @@
 <template>
-    <div class="container">
+    <div class="container-fullwidth">
         <Header></Header>
-        <div class="inner-container">
+        <div class="container">
             <About></About>
         </div>
         <Footer></Footer>
@@ -10,6 +10,9 @@
 
 <script lang="ts">
     import Vue from 'vue';
+    import { BootstrapVue } from 'bootstrap-vue';
+
+    Vue.use(BootstrapVue);
 
     export default Vue.extend({
         layout: 'dark'
@@ -19,14 +22,7 @@
 <style lang="scss" scoped>
     .container {
         display: flex;
-        height: 100%;
-
-        .inner-container {
-            margin: 0 auto;
-            justify-content: center;
-            align-content: center;
-            align-items: center;
-            display: flex;
-        }
+        height: 100vh;
+        align-items: center;
     }
 </style>

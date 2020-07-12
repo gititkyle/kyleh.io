@@ -29,7 +29,8 @@ export default {
         ]
     },
     css: [
-        '@/assets/css/global.css'
+        '@/assets/scss/global.scss',
+        '@/assets/scss/lib.scss'
     ],
     styleResources: {
         scss: [

@@ -1,7 +1,5 @@
 <template>
-    <div class="header">
-        <div></div>
-    </div>
+    <div class="header"></div>
 </template>
 <script lang="ts">
     import Vue from 'vue';
@@ -13,7 +11,6 @@
 <style lang="scss" scoped>
     .header {
         display: flex;
-        position: absolute;
         width: 100%;
         border-bottom: 5px solid $dark-theme-4;
         animation: slide 1s ease-in;
