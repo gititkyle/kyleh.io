@@ -1,10 +1,14 @@
 {
   "name": "kyleh.io",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
+  "author": {
+    "name": "Kyle",
+    "email": "hi@kyleh.io"
+  },
   "scripts": {
-    "dev": "nuxt-ts",
-    "build": "nuxt-ts build",
+    "start:dev": "nuxt-ts",
+    "build:dist": "nuxt-ts build",
     "start": "nuxt-ts start",
     "export": "nuxt-ts export",
     "serve": "nuxt-ts serve",
@@ -19,7 +23,7 @@
     "bootstrap-vue": "2.15.0",
     "nuxt": "2.13.0",
     "nuxt-fontawesome": "0.4.0",
-    "rfs": "^9.0.3"
+    "rfs": "9.0.3"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "1.0.3",

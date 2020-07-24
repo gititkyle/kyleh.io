@@ -2,9 +2,9 @@
     <footer class="footer">
         <div class="container">
             <div class="social-icons">
-                <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/kylealanhanson"><font-awesome-icon size="lg" :icon="['fab', 'linkedin']"/></a>
-                <a rel="noopener noreferrer" target="_blank" href="https://github.com/chooooons"><font-awesome-icon size="lg" :icon="['fab', 'github']"/></a>
-                <a rel="noopener noreferrer" target="_blank" href="mailto:hi@kyleh.io?subject=Hi, Kyle!"><font-awesome-icon size="6x" :icon="['fas', 'envelope']"/></a>
+                <a rel="noopener noreferrer" target="_blank" href="https://github.com/gititkyle"><font-awesome-icon size="md" :icon="['fab', 'github']"/></a>
+                <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/kylealanhanson"><font-awesome-icon size="md" :icon="['fab', 'linkedin']"/></a>
+                <a rel="noopener noreferrer" target="_blank" href="mailto:hi@kyleh.io?subject=Hi, Kyle!"><font-awesome-icon size="md" :icon="['fas', 'envelope']"/></a>
             </div>
         </div>
     </footer>
@@ -33,7 +33,7 @@
         }
 
         .social-icons {
-            @include font-size(4rem);
+            @include font-size(5rem);
 
             svg {
                 color: $dark-theme-1;

@@ -17,7 +17,7 @@ export default {
             {
                 hid: 'description',
                 name: 'description',
-                content: 'kyleh.io'
+                content: 'kyleh.io: website about software developer Kyle Hanson'
             }
         ],
         link: [
@@ -29,12 +29,16 @@ export default {
         ]
     },
     css: [
-        '@/assets/scss/global.scss',
-        '@/assets/scss/lib.scss'
+        '~assets/scss/global.scss',
+        '~assets/scss/lib.scss'
     ],
     styleResources: {
         scss: [
-            '~/assets/scss/theme.scss'
+            '~assets/scss/theme.scss',
+            '~node_modules/bootstrap/scss/_functions.scss',
+            '~node_modules/bootstrap/scss/_variables.scss',
+            '~node_modules/bootstrap/scss/_mixins.scss',
+            '~node_modules/bootstrap/vendor/_rfs.scss'
         ]
     },
     plugins: [
@@ -63,6 +67,5 @@ export default {
     ],
     axios: {},
     build: {
-        analyze: true
     }
 }

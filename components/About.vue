@@ -1,18 +1,48 @@
 <template>
     <div class="about">
-        <span class="bio">
-            Hi, I'm Kyle. I am a fullstack <kbd>Javascript</kbd> developer based in <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/place/San+Jose,+CA/">San Jose, Ca</a>.
-        </span>
+        <section class="bio">
+            Hi, I'm Kyle. I'm a self-taught fullstack <kbd>Javascript</kbd>
+            developer based in
+            <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.openstreetmap.org/search?query=San Jose%2C CA#map=12/37.2971/-121.8174">
+                San Jose, Ca.
+            </a> I'm currently building stuff @
+            <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://reputation.com">
+                reputation.com.</a>
+            <span class="cursor">|</span>
+        </section>
     </div>
 </template>
 <style lang="scss" scoped>
 
-    @import "../node_modules/rfs/scss";
-
     .about {
-        @include font-size(4rem);
+        @include font-size($font-size-xl);
         color: $dark-theme-text-light;
-        animation: 2s ease-in fade;
+        animation: 1.5s ease-in fade;
+    }
+
+    .cursor {
+        animation: 1s blink step-end infinite;
+    }
+
+    @include media-breakpoint-down (sm) {
+        .about {
+            font-size: $font-size-lg;
+        }
+    }
+
+    @keyframes blink {
+        to, from {
+            color: transparent;
+        }
+        50% {
+            color: $dark-theme-text-light;
+        }
     }
 
     @keyframes fade {
