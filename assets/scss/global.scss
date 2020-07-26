@@ -2,7 +2,8 @@ html, body {
     font-family: 'Quicksand', Roboto, 'Helvetica Neue', Arial;
     letter-spacing: 1px;
 
-    a, a:hover {
-        color: $dark-theme-text-light;
+    ul {
+        padding: 0;
+        list-style-type: none !important;
     }
 }

@@ -5,6 +5,7 @@
         <div class="container">
             <About></About>
         </div>
+        <Footer></Footer>
     </div>
 </template>
 

@@ -23,7 +23,8 @@
     "bootstrap-vue": "2.15.0",
     "nuxt": "2.13.0",
     "nuxt-fontawesome": "0.4.0",
-    "rfs": "9.0.3"
+    "rfs": "9.0.3",
+    "terminal.css": "^0.7.1"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "1.0.3",

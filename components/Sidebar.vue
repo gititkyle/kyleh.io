@@ -11,6 +11,7 @@
             title="say hi!"
             bg-variant=""
             text-variant=""
+            header-class="kyleh-custom-header"
             sidebar-class="kyleh-custom-sidebar"
             body-class="kyleh-custom-body"
             shadow>
@@ -49,16 +50,19 @@
     .sidebar-container {
         margin: 16px;
 
-        .bi-chevron-bar-right {
+        .bi-chevron-bar-right, .nav-link {
+            color: $dark-theme-text-light;
+        }
+
+        .kyleh-custom-header {
             color: $dark-theme-text-light;
         }
 
         .kyleh-custom-sidebar {
-            background-color: $dark-theme-4;
+            background-color: $dark-theme-5;
         }
 
         .nav-link {
-            color: $dark-theme-text-dark;
             font-size: $font-size-md;
         }
     }

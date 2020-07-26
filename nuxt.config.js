@@ -66,6 +66,5 @@ export default {
         ]
     ],
     axios: {},
-    build: {
-    }
+    build: {}
 }

@@ -1,11 +1,9 @@
 <template>
     <footer class="footer">
         <div class="container">
-            <div class="social-icons">
-                <a rel="noopener noreferrer" target="_blank" href="https://github.com/gititkyle"><font-awesome-icon size="md" :icon="['fab', 'github']"/></a>
-                <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/kylealanhanson"><font-awesome-icon size="md" :icon="['fab', 'linkedin']"/></a>
-                <a rel="noopener noreferrer" target="_blank" href="mailto:hi@kyleh.io?subject=Hi, Kyle!"><font-awesome-icon size="md" :icon="['fas', 'envelope']"/></a>
-            </div>
+            <section>
+                <code>prefer cli? try <a href="/term">this</a> (not recommended for mobile)</code>
+            </section>
         </div>
     </footer>
 </template>
@@ -25,20 +23,7 @@
         padding: 15px;
         position: absolute;
         bottom: 0;
-        background-color: $dark-theme-4;
-        animation: slide 1s forwards;
-
-        .social-icons, .copyright {
-            display: inline;
-        }
-
-        .social-icons {
-            @include font-size(5rem);
-
-            svg {
-                color: $dark-theme-1;
-            }
-        }
+        animation: slide 1.5s forwards;
     }
 
     @keyframes slide {
