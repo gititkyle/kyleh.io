@@ -1,6 +1,5 @@
 <template>
     <div class="container-fullwidth">
-        <Header></Header>
         <Sidebar></Sidebar>
         <div class="container">
             <About></About>

@@ -1,58 +1,76 @@
 <template>
     <table>
+        <caption
+            v-for="caption in captions"
+            :key="caption.key">
+            {{caption.label}}
+        </caption>
         <thead>
-            <th>
-                <tr v-repeat="row in data.header.rows">
-                    <td v-repeat="column in row.columns">{{column.label}}</td>
-                </tr>
-            </th>
+            <tr
+                v-for="row in header"
+                :key="row.key">
+                <td
+                    v-for="data in row.columns"
+                    :key="data.key">
+                    {{data.label}}
+                </td>
+            </tr>
         </thead>
         <tbody>
-            <tr v-repeat="row in data.body.rows">
-                <td v-repeat="column in row.columns">{{column.label}}</td>
+            <tr
+                v-for="row in body"
+                :key="row.key">
+                <td
+                    v-for="data in row.columns"
+                    :key="data.key">
+                    {{data.label}}
+                </td>
             </tr>
         </tbody>
+        <tfoot></tfoot>
     </table>
 </template>
 <script lang="ts">
     import Vue from 'vue';
 
+    export function getKey (): number {
+        return Math.floor(Date.now() * (Math.random() * 10));
+    }
+
+    export interface ITable {
+        captions?: ITableColumn[];
+        header: ITableHeader[];
+        body: ITableBody[];
+        footer?: ITableFooter[];
+    }
+
+    export interface ITableColumn {
+        key: number;
+        label: string;
+    }
+
+    export interface ITableHeader {
+        key: number;
+        columns: ITableColumn[];
+    }
+
+    export interface ITableBody {
+        key: number;
+        columns: ITableColumn[];
+    }
+
+    export interface ITableFooter {
+        key: number;
+        columns: ITableColumn[];
+    }
+
     export default Vue.extend({
         name: 'Table',
-        props: ['table-data'],
-        data: function () {
-            return {
-                data: {
-                    header: {
-                        rows: [
-                            {
-                                columns: [
-                                    {
-                                        label: 'header-column-1'
-                                    },
-                                    {
-                                        label: 'header-column-2'
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    body: {
-                        rows: [
-                            {
-                                columns: [
-                                    {
-                                        label: 'body-column-1'
-                                    },
-                                    {
-                                        label: 'body-column-2'
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                }
-            };
+        props: {
+            captions: Array,
+            header: Array,
+            body: Array,
+            footer: Array
         }
     });
 </script>

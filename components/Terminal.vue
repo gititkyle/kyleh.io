@@ -11,15 +11,11 @@
                 <div
                     v-for="item in history" :key="item.id">
                     {{user}}:{{dirname}}$ {{item.command}}
-                    <div v-if="item.type === ItemTypes.Help"><Help></Help></div>
-                    <div v-if="item.type === ItemTypes.Bio"><Bio></Bio></div>
-                    <div v-if="item.type === ItemTypes.Links"><Links></Links></div>
-                    <div v-if="item.type === ItemTypes.Error"><Error></Error></div>
-                    <div v-if="item.type === ItemTypes.Quit">
-                        <div v-bind="quit()" class="terminal-alert terminal-alert-primary">
-                            Thanks for trying out the cli! I'll redirect you to the main page in 5s
-                        </div>
-                    </div>
+                    <div v-if="item.type === HistoryRecordType.Help"><Help></Help></div>
+                    <div v-if="item.type === HistoryRecordType.Bio"><Bio></Bio></div>
+                    <div v-if="item.type === HistoryRecordType.Links"><Links></Links></div>
+                    <div v-if="item.type === HistoryRecordType.Error"><Error></Error></div>
+                    <div v-if="item.type === HistoryRecordType.Quit"><Quit></Quit></div>
                 </div>
             </div>
         </section>
@@ -38,14 +34,14 @@
 <script lang="ts">
     import Vue from 'vue';
 
-    interface IHistoryRecord {
+    export interface IHistoryRecord {
         id: number,
-        type: string,
+        type: HistoryRecordType,
         data?: any,
         command: string
     };
 
-    enum ItemTypes {
+    export enum HistoryRecordType {
         Help="help",
         Bio="bio",
         Links="links",
@@ -53,33 +49,32 @@
         Quit="quit"
     };
 
-    const DEFAULT_CMD: string = 'kh --help';
+    export const DEFAULT_CMD: string = 'kh --help';
+    export const DIRNAME: string = '~/term';
+    export const USER: string = 'hi@kyleh.io';
 
-    let HistoryRecords: IHistoryRecord[];
-    let ParsedCommand: Array<string>;
+    export let HistoryRecords: IHistoryRecord[] = [];
+    export let ParsedCommand: Array<string> = [];
 
     export default Vue.extend({
         name: 'Terminal',
         data () {
             return {
                 history: HistoryRecords,
-                dirname: '~/term',
-                user: 'hi@kyleh.io',
+                dirname: DIRNAME,
+                user: USER,
                 command: DEFAULT_CMD,
                 parsed: ParsedCommand,
-                ItemTypes: ItemTypes,
+                HistoryRecordType: HistoryRecordType,
                 countdown: 5
             };
-        },
-        created () {
-            this.history = [];
         },
         mounted () {
             this.focusInput();
         },
         methods: {
             submit () {
-                const container = this.$el.querySelector('.terminal-b');
+                const scrollable = this.$el.querySelector('.terminal-b');
 
                 this.parsed = this.parse();
 
@@ -90,12 +85,13 @@
                 });
 
                 setTimeout(() => {
-                    if(container) {
-                        container.scrollTop = container.scrollHeight;
+                    if(scrollable) {
+                        scrollable.scrollTop = scrollable.scrollHeight;
                     }
                 });
 
                 this.clear();
+                this.focusInput();
             },
             parse () {
                 return this.command.split(' ');
@@ -114,27 +110,22 @@
                 switch((this.parsed[1] || '').trim()) {
                     case '--help':
                     case '-h':
-                        return this.ItemTypes.Help;
+                        return this.HistoryRecordType.Help;
                     case '--bio':
                     case '-b':
-                        return this.ItemTypes.Bio;
+                        return this.HistoryRecordType.Bio;
                     case '--links':
                     case '-l':
-                        return this.ItemTypes.Links;
+                        return this.HistoryRecordType.Links;
                     case '--quit':
                     case '-q':
-                        return this.ItemTypes.Quit;
+                        return this.HistoryRecordType.Quit;
                     default:
-                        return this.ItemTypes.Error;
+                        return this.HistoryRecordType.Error;
                 }
             },
             getCmd () {
                 return this.command;
-            },
-            quit () {
-                setTimeout(() => {
-                    document.location.href = '/';
-                }, 5000);
             }
         }
     });

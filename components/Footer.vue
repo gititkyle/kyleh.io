@@ -16,8 +16,6 @@
 </script>
 <style lang="scss" scoped>
 
-    @import "../node_modules/rfs/scss";
-
     .footer {
         width: 100%;
         padding: 15px;

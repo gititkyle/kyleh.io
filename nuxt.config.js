@@ -17,7 +17,7 @@ export default {
             {
                 hid: 'description',
                 name: 'description',
-                content: 'kyleh.io: website about software developer Kyle Hanson'
+                content: 'kyleh.io: website of software developer Kyle Hanson'
             }
         ],
         link: [
