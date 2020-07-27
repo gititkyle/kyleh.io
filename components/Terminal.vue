@@ -5,9 +5,8 @@
         </section>
         <section class="terminal-b">
             <div class="terminal-h">
-                <div class="terminal-alert terminal-alert-primary">
-                    Welcome to kyleh.io's cli. Your first command is inputed for you, just hit Enter.
-                </div>
+                <Welcome></Welcome>
+                <Logo></Logo>
                 <div
                     v-for="item in history" :key="item.id">
                     {{user}}:{{dirname}}$ {{item.command}}
