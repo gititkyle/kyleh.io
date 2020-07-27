@@ -2,8 +2,7 @@
     <Table
         :captions="captions"
         :header="header"
-        :body="body"
-        :footer="footer">
+        :body="body">
     </Table>
 </template>
 <script lang="ts">
@@ -71,6 +70,23 @@
                             {
                                 key: getKey(),
                                 label: 'Display kyle\'s profile links'
+                            }
+                        ]
+                    },
+                    {
+                        key: getKey(),
+                        columns: [
+                            {
+                                key: getKey(),
+                                label: '--timeline'
+                            },
+                            {
+                                key: getKey(),
+                                label: '-t'
+                            },
+                            {
+                                key: getKey(),
+                                label: 'Display a brief timeline of kyle\'s career'
                             }
                         ]
                     },

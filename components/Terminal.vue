@@ -14,6 +14,7 @@
                     <div v-if="item.type === HistoryRecordType.Help"><Help></Help></div>
                     <div v-if="item.type === HistoryRecordType.Bio"><Bio></Bio></div>
                     <div v-if="item.type === HistoryRecordType.Links"><Links></Links></div>
+                    <div v-if="item.type === HistoryRecordType.Timeline"><History></History></div>
                     <div v-if="item.type === HistoryRecordType.Error"><Error></Error></div>
                     <div v-if="item.type === HistoryRecordType.Quit"><Quit></Quit></div>
                 </div>
@@ -45,6 +46,7 @@
         Help="help",
         Bio="bio",
         Links="links",
+        Timeline="timeline",
         Error="error",
         Quit="quit"
     };
@@ -117,6 +119,9 @@
                     case '--links':
                     case '-l':
                         return this.HistoryRecordType.Links;
+                    case '--timeline':
+                    case '-t':
+                        return this.HistoryRecordType.Timeline;
                     case '--quit':
                     case '-q':
                         return this.HistoryRecordType.Quit;
@@ -133,7 +138,7 @@
 <style lang="scss" scoped>
     .terminal {
         position: relative;
-        height: 56vh;
+        height: 64vh;
         opacity: .95;
         background-color: $dark-theme-5;
 
@@ -150,17 +155,18 @@
        .terminal-b {
            width: 100%;
            height: 85%;
-           overflow: hidden;
-           scrollbar-width: none;
+           overflow-y: scroll;
+           scrollbar-width: 0px;
            position: relative;
            padding: 8px;
            color: $dark-theme-text-light;
 
-            ::-webkit-scrollbar {
-                display: none;
+            &::-webkit-scrollbar {
+                width: 0px;
+                background: transparent;
             }
 
-           .terminal-card, .terminal-alert {
+           .terminal-card, .terminal-alert, .terminal-timeline {
                margin: 16px 0;
            }
        }
