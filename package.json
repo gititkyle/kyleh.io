@@ -21,7 +21,7 @@
     "@nuxtjs/axios": "5.11.0",
     "bootstrap": "4.5.0",
     "bootstrap-vue": "2.15.0",
-    "nuxt": "2.13.0",
+    "nuxt": "3.4.3",
     "nuxt-fontawesome": "0.4.0",
     "rfs": "9.0.3",
     "terminal.css": "^0.7.1"
